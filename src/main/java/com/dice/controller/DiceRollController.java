@@ -1,10 +1,11 @@
 package com.dice.controller;
 
+import com.dice.DTO.DiceSwDTO;
+import com.dice.DTO.ResultadoSwDTO;
 import com.dice.service.DiceRollService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dice")
@@ -20,5 +21,10 @@ public class DiceRollController {
             @RequestParam(name = "faces", defaultValue = "6") int faces
     ) {
         return diceRollService.rollDice(quantity, faces);
+    }
+
+    @PostMapping("/sw/roll")
+    public ResponseEntity<ResultadoSwDTO> rollDice(@RequestBody DiceSwDTO dice) {
+        return new ResponseEntity<ResultadoSwDTO>(diceRollService.rollSwDice(dice), HttpStatus.OK);
     }
 }
