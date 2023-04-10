@@ -100,7 +100,7 @@ public class DiceRollService {
         }
 
         for (int i = 0; i < setback; i++) {
-            Dice setbackDice = new Dice(8);
+            Dice setbackDice = new Dice(6);
             int result = setbackDice.roll();
             if (result == 1 || result == 2) {
                 // Do nothing
@@ -151,6 +151,10 @@ public class DiceRollService {
             }
         }
 
+        return getResultSwDice(success, triumph, advantage, failure, despair, threat);
+    }
+
+    private ResultadoSwDTO getResultSwDice(int success, int triumph, int advantage, int failure, int despair, int threat) {
         ResultadoSwDTO diceResult = new ResultadoSwDTO();
         if (success - failure > 0) {
             diceResult.setSucessos(success - failure);
@@ -184,7 +188,6 @@ public class DiceRollService {
             diceResult.setTriunfos(0);
             diceResult.setDesesperos(0);
         }
-
         return diceResult;
     }
 }
