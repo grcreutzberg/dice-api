@@ -2,6 +2,7 @@ package com.dice.service;
 
 import com.dice.DTO.DiceSwDTO;
 import com.dice.DTO.ResultadoSwDTO;
+import com.dice.DTO.ResultadoSwDestinyDTO;
 import com.dice.model.Dice;
 import org.springframework.stereotype.Service;
 
@@ -189,6 +190,30 @@ public class DiceRollService {
             diceResult.setDesesperos(0);
         }
         return diceResult;
+    }
+
+    public ResultadoSwDestinyDTO rollDestiny(int quantity) {
+        int light = 0;
+        int dark = 0;
+
+        for (int i = 0; i < quantity; i++) {
+            Dice challengeDice = new Dice(12);
+            int result = challengeDice.roll();
+            if (result == 1 || result == 2 || result == 3 || result == 4 || result == 5 || result == 6) {
+                dark += 1;
+            } else if (result == 7) {
+                dark += 2;
+            } else if (result == 8 || result == 9) {
+                light += 1;
+            } else if (result == 10 || result == 11 || result == 12) {
+                light += 2;
+            }
+        }
+
+        ResultadoSwDestinyDTO destinyResult = new ResultadoSwDestinyDTO();
+        destinyResult.setLuz(light);
+        destinyResult.setNegro(dark);
+        return  destinyResult;
     }
 }
 

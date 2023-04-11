@@ -2,13 +2,19 @@ package com.dice.controller;
 
 import com.dice.DTO.DiceSwDTO;
 import com.dice.DTO.ResultadoSwDTO;
+import com.dice.DTO.ResultadoSwDestinyDTO;
 import com.dice.service.DiceRollService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/dice")
+@RequestMapping("/v1/dice")
 public class DiceRollController {
     private final DiceRollService diceRollService;
     public DiceRollController(DiceRollService diceRollService) {
@@ -18,7 +24,7 @@ public class DiceRollController {
     @GetMapping("/roll")
     public int[] rollDice(
             @RequestParam(name = "quantity", defaultValue = "1") int quantity,
-            @RequestParam(name = "faces", defaultValue = "6") int faces
+            @RequestParam(name = "faces", defaultValue = "20") int faces
     ) {
         return diceRollService.rollDice(quantity, faces);
     }
@@ -26,5 +32,12 @@ public class DiceRollController {
     @PostMapping("/sw/roll")
     public ResponseEntity<ResultadoSwDTO> rollDice(@RequestBody DiceSwDTO dice) {
         return new ResponseEntity<ResultadoSwDTO>(diceRollService.rollSwDice(dice), HttpStatus.OK);
+    }
+
+    @GetMapping("/sw/destiny")
+    public ResponseEntity<ResultadoSwDestinyDTO> rollDestiny(
+            @RequestParam(name = "quantity", defaultValue = "1") int quantity
+    ) {
+        return new ResponseEntity<ResultadoSwDestinyDTO>(diceRollService.rollDestiny(quantity), HttpStatus.OK);
     }
 }
