@@ -4,12 +4,12 @@ Este projeto é uma API em Java usando o framework Spring Boot para rolagem de d
 
 ## Endpoints
 
-### *GET /dice/roll*
+### *GET /v1/dice/roll*
 
 Realiza a rolagem dos dados de acordo com os parâmetros (*quantity* e *faces*) recebidos na URL e retorna um JSON com o resultado da rolagem.
 
-- Quantity: quantidade de dados que serão rolados.
-- Faces: quantidade de faces dos dados que serão rolados.
+- Quantity: quantidade de dados que serão rolados, parâmetro opcional (Default = 1).
+- Faces: quantidade de faces dos dados que serão rolados, parâmetro opcional (Default = 20).
 
 Exemplo parâmatro:
 ```curl
@@ -21,12 +21,25 @@ Exemplo resultado:
 [3,10,8]
 ```
 
-### *GET /dice/sw/destiny*
-```
-EM BREVE
+### *GET /v1/dice/sw/destiny*
+
+Realiza a rolagem dos dados de acordo com os parâmetros (*quantity* e *faces*) recebidos na URL e retorna um JSON com o resultado da rolagem.
+
+- Quantity: quantidade de dados de Destino que serão rolados, parâmetro opcional (Default = 1).
+
+```curl
+?quantity=3
 ```
 
-### *POST /dice/sw/roll*
+Exemplo resultado:
+```json
+{
+  "luz": 2,
+  "negro": 3
+}
+```
+
+### *POST /v1/dice/sw/roll*
 
 Realiza a rolagem dos dados de acordo com os parâmetros recebidos em um JSON e retorna um objeto JSON com o resultado da rolagem.
 
