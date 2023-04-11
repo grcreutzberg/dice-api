@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/grcreutzberg/dice-api/badge.svg?branch=main)](https://coveralls.io/github/grcreutzberg/dice-api?branch=main)
+
 # Projeto RPG Dice Roller
 
 Este projeto é uma API em Java usando o framework Spring Boot para rolagem de dados de RPG com foco no sistema **Star Wars Fronteiras do Empério**.
