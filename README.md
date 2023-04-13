@@ -152,7 +152,7 @@ https://dice-api.up.railway.app/
 * 1.0.0
   * Endpoint **GET /v1/dice/roll**
   * Endpoint **POST /v1/dice/sw/roll**
-  * Endpoint **GET /v1/dice/sw/destiny**
+  * Endpoint **GET /v1/dice/sw/force**
 
 
 <div id='tech'/>
