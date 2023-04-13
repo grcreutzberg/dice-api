@@ -2,7 +2,7 @@ package com.dice.service;
 
 import com.dice.DTO.DiceSwDTO;
 import com.dice.DTO.ResultadoSwDTO;
-import com.dice.DTO.ResultadoSwDestinyDTO;
+import com.dice.DTO.ResultadoSwForceDTO;
 import com.dice.model.Dice;
 import org.springframework.stereotype.Service;
 
@@ -192,7 +192,7 @@ public class DiceRollService {
         return diceResult;
     }
 
-    public ResultadoSwDestinyDTO rollDestiny(int quantity) {
+    public ResultadoSwForceDTO rollForce(int quantity) {
         int light = 0;
         int dark = 0;
 
@@ -210,10 +210,10 @@ public class DiceRollService {
             }
         }
 
-        ResultadoSwDestinyDTO destinyResult = new ResultadoSwDestinyDTO();
-        destinyResult.setLuz(light);
-        destinyResult.setNegro(dark);
-        return  destinyResult;
+        ResultadoSwForceDTO forceResult = new ResultadoSwForceDTO();
+        forceResult.setLuz(light);
+        forceResult.setNegro(dark);
+        return  forceResult;
     }
 }
 

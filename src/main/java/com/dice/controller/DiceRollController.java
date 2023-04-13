@@ -2,7 +2,7 @@ package com.dice.controller;
 
 import com.dice.DTO.DiceSwDTO;
 import com.dice.DTO.ResultadoSwDTO;
-import com.dice.DTO.ResultadoSwDestinyDTO;
+import com.dice.DTO.ResultadoSwForceDTO;
 import com.dice.service.DiceRollService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +34,10 @@ public class DiceRollController {
         return new ResponseEntity<ResultadoSwDTO>(diceRollService.rollSwDice(dice), HttpStatus.OK);
     }
 
-    @GetMapping("/sw/destiny")
-    public ResponseEntity<ResultadoSwDestinyDTO> rollDestiny(
+    @GetMapping("/sw/force")
+    public ResponseEntity<ResultadoSwForceDTO> rollForce(
             @RequestParam(name = "quantity", defaultValue = "1") int quantity
     ) {
-        return new ResponseEntity<ResultadoSwDestinyDTO>(diceRollService.rollDestiny(quantity), HttpStatus.OK);
+        return new ResponseEntity<ResultadoSwForceDTO>(diceRollService.rollForce(quantity), HttpStatus.OK);
     }
 }

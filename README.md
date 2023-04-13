@@ -121,12 +121,6 @@ Exemplo retorno JSON:
 | <img width="36" alt="Desespero" src="https://user-images.githubusercontent.com/20562320/231886154-4a47d73e-193e-4e01-b732-cd30e1ebce55.png"> | Desesperos |
 
 
-
-
-
-
-
-
 <div id='example'/>
 
 ### Exemplo de uso
@@ -137,9 +131,9 @@ Alguns exemplos interessantes e úteis sobre como seu projeto pode ser utilizado
 
 **GET** `https://dice-api.up.railway.app/v1/dice/roll?quantity=3&faces=12`
 
-**GET** `https://dice-api.up.railway.app/v1/dice/sw/destiny`
+**GET** `https://dice-api.up.railway.app/v1/dice/sw/force`
 
-**GET** `https://dice-api.up.railway.app/v1/dice/sw/destiny?quantity=4`
+**GET** `https://dice-api.up.railway.app/v1/dice/sw/force?quantity=4`
 
 **POST** `https://dice-api.up.railway.app/v1/dice/sw/roll`
 

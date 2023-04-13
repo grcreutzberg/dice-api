@@ -1,6 +1,6 @@
 package com.dice.DTO;
 
-public class ResultadoSwDestinyDTO {
+public class ResultadoSwForceDTO {
 
     private int luz = 0;
     private int negro = 0;
