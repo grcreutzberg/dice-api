@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1/dice")
 public class DiceRollController {
-    private final DiceRollService diceRollService;
+    private final DiceRollService service;
     public DiceRollController(DiceRollService diceRollService) {
-        this.diceRollService = diceRollService;
+        this.service = diceRollService;
     }
 
     @GetMapping("/roll")
@@ -19,7 +19,7 @@ public class DiceRollController {
             @RequestParam(name = "quantity", defaultValue = "1") int quantity,
             @RequestParam(name = "faces", defaultValue = "20") int faces
     ) {
-        return diceRollService.rollDice(quantity, faces);
+        return service.rollDice(quantity, faces);
     }
 
 }
