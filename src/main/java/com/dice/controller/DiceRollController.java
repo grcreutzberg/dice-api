@@ -22,4 +22,17 @@ public class DiceRollController {
         return service.rollDice(quantity, faces);
     }
 
+    @GetMapping("/advantage")
+    public int rollAdvantage(
+            @RequestParam(name = "dice", defaultValue = "20") int dice
+    ) {
+        return service.rollDisVantage("Advantage", dice);
+    }
+
+    @GetMapping("/disadvantage")
+    public int rollDisadvantage(
+            @RequestParam(name = "dice", defaultValue = "20") int dice
+    ) {
+        return service.rollDisVantage("Disadvantage", dice);
+    }
 }
